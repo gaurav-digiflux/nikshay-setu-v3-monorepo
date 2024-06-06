@@ -74,9 +74,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.nikshysetumob"
+    namespace "com.iiphg.tbapp"
     defaultConfig {
-        applicationId "com.nikshysetumob"
+        applicationId "com.iiphg.tbapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -1,5 +1,5 @@
-// Replace "com.nikshysetumob" here and below with your app's package name from the top of MainActivity.java
-package com.nikshysetumob;
+// Replace "com.iiphg.tbapp" here and below with your app's package name from the top of MainActivity.java
+package com.iiphg.tbapp;
 
 import com.wix.detox.Detox;
 import com.wix.detox.config.DetoxConfig;

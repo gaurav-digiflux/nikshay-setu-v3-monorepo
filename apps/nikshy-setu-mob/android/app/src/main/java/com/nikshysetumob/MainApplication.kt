@@ -1,4 +1,4 @@
-package com.nikshysetumob
+package com.iiphg.tbapp
 
 import android.app.Application
 import com.facebook.react.PackageList

@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
+import { shared } from '@nikshay-setu-v3-monorepo/shared';
 import React, { useRef, useState } from 'react';
 import {
   SafeAreaView,
@@ -15,7 +16,7 @@ import Svg, { G, Path } from 'react-native-svg';
 export const App = () => {
   const [whatsNextYCoord, setWhatsNextYCoord] = useState<number>(0);
   const scrollViewRef = useRef<null | ScrollView>(null);
-
+  
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -38,7 +39,7 @@ export const App = () => {
               testID="heading"
               role="heading"
             >
-              Welcome NikshySetuMob 👋
+              Welcome {shared()} 👋
             </Text>
           </View>
           <View style={styles.section}>

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import { shared } from '@nikshay-setu-v3-monorepo/shared';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -10,10 +10,13 @@ import {
   Text,
   StatusBar,
   TouchableOpacity,
+  TextInput,
 } from 'react-native';
 
 export const App = () => {
-  const [whatsNextYCoord, setWhatsNextYCoord] = useState<number>(0);
+  const [storedValue, setLoaclStorage] = useState<string>('');
+  const [asyncStorageVal, setAsyncStorageVal] = useState<string>('');
+
   const scrollViewRef = useRef<null | ScrollView>(null);
   const storeData = async (value) => {
     try {
@@ -23,6 +26,20 @@ export const App = () => {
       // saving error
     }
   };
+  const fetchData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('TEST_KEY');
+      console.log('TEST_KEY value:', value);
+      setAsyncStorageVal(value)
+    } catch (e) {
+      setAsyncStorageVal("erorr")
+      console.log('TEST_KEY error:', e);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -39,7 +56,6 @@ export const App = () => {
           style={styles.scrollView}
         >
           <View style={styles.section}>
-            <Text style={styles.textLg}>Hello there,</Text>
             <Text
               style={[styles.textXL, styles.appTitleText]}
               testID="heading"
@@ -48,17 +64,34 @@ export const App = () => {
               Welcome {shared(process.env.NODE_ENV)} 👋
             </Text>
           </View>
+          <Text style={{color:"white"}}>
+            Storage val : {asyncStorageVal}
+            </Text>
+          <TextInput
+            editable
+            multiline
+            numberOfLines={2}
+            maxLength={40}
+            onChangeText={(text) => setLoaclStorage(text)}
+            value={storedValue}
+            style={{
+              padding: 5,
+              margin: 5,
+              borderColor: 'white',
+              borderWidth: 1,
+            }}
+          />
           <TouchableOpacity
-                style={styles.listItemTextContainer}
-                onPress={() => {
-console.log('PRESS TEST');
-                 
-                }}
-              >
-                <Text style={[styles.textMd, styles.textCenter]}>
-                  What's next?
-                </Text>
-              </TouchableOpacity>
+            style={styles.listItemTextContainer}
+            onPress={() => {
+              storeData(storedValue)
+              fetchData();
+            }}
+          >
+            <Text style={[styles.textMd, styles.textCenter]}>
+              save to local Storage
+            </Text>
+          </TouchableOpacity>
         </ScrollView>
       </SafeAreaView>
     </>
@@ -66,10 +99,10 @@ console.log('PRESS TEST');
 };
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#000000',
   },
   codeBlock: {
-    backgroundColor: 'rgba(55, 65, 81, 1)',
+    backgroundColor: '#000000',
     marginVertical: 12,
     padding: 12,
     borderRadius: 4,
@@ -111,6 +144,7 @@ const styles = StyleSheet.create({
   },
   textMd: {
     fontSize: 18,
+    color: 'black',
   },
   textLg: {
     fontSize: 24,
@@ -147,7 +181,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   listItemTextContainer: {
-    marginLeft: 12,
+    padding: 10,
+    margin: 10,
+    backgroundColor: '#ffffff',
     flex: 1,
   },
   appTitleText: {

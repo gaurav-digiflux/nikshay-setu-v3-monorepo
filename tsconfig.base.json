@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nikshay-setu-v3-monorepo/shared": ["shared/src/index.ts"]
+      "@nikshay-setu-v3-monorepo/constants": ["shared/constants/src/index.ts"],
+      "@nikshay-setu-v3-monorepo/store": ["shared/store/src/index.ts"],
+      "@nikshay-setu-v3-monorepo/types": ["shared/types/src/index.ts"],
+      "@nikshay-setu-v3-monorepo/utils": ["shared/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import { shared } from '@nikshay-setu-v3-monorepo/shared';
+import { counter, fetchDataw, isAuth } from '@nikshay-setu-v3-monorepo/utils';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect, useRef, useState } from 'react';
 import {
@@ -12,33 +12,38 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
+import { fetchUserRequest } from '@nikshay-setu-v3-monorepo/store';
+import store from 'shared/store/src/store/store';
+import { Provider, useDispatch } from 'react-redux';
+import { constants } from '@nikshay-setu-v3-monorepo/constants';
 
-export const App = () => {
+export const MainApp = () => {
   const [storedValue, setLoaclStorage] = useState<string>('');
   const [asyncStorageVal, setAsyncStorageVal] = useState<string>('');
-
+  const dispatch = useDispatch();
   const scrollViewRef = useRef<null | ScrollView>(null);
   const storeData = async (value) => {
     try {
       const jsonValue = JSON.stringify(value);
-      await AsyncStorage.setItem('TEST_KEY', jsonValue);
+      await AsyncStorage.setItem('token', jsonValue);
     } catch (e) {
       // saving error
     }
   };
   const fetchData = async () => {
     try {
-      const value = await AsyncStorage.getItem('TEST_KEY');
-      console.log('TEST_KEY value:', value);
-      setAsyncStorageVal(value)
+      const value = await AsyncStorage.getItem('token');
+      setAsyncStorageVal(value);
     } catch (e) {
-      setAsyncStorageVal("erorr")
-      console.log('TEST_KEY error:', e);
+      setAsyncStorageVal('erorr');
     }
   };
+console.log('process.env',process.env);
 
   useEffect(() => {
-    fetchData();
+    fetchDataw();
+    // dispatch(fetchUserRequest())
+    isAuth(asyncStorageVal);
   }, []);
   return (
     <>
@@ -61,12 +66,12 @@ export const App = () => {
               testID="heading"
               role="heading"
             >
-              Welcome {shared(process.env.NODE_ENV)} 👋
+              Welcome {process.env.NODE_ENV} 👋
             </Text>
           </View>
-          <Text style={{color:"white"}}>
+          <Text style={{ color: 'white' }}>
             Storage val : {asyncStorageVal}
-            </Text>
+          </Text>
           <TextInput
             editable
             multiline
@@ -84,13 +89,31 @@ export const App = () => {
           <TouchableOpacity
             style={styles.listItemTextContainer}
             onPress={() => {
-              storeData(storedValue)
+              storeData(storedValue);
               fetchData();
+              counter(1, 3);
             }}
           >
             <Text style={[styles.textMd, styles.textCenter]}>
               save to local Storage
             </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.listItemTextContainer}
+            onPress={() => {
+              console.log('LOGG', 'SS');
+              dispatch(fetchUserRequest());
+            }}
+          >
+            <Text style={[styles.textMd, styles.textCenter]}>CALL ACTION</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.listItemTextContainer}
+            onPress={() => {
+              constants()
+            }}
+          >
+            <Text style={[styles.textMd, styles.textCenter]}>CALL ENV</Text>
           </TouchableOpacity>
         </ScrollView>
       </SafeAreaView>
@@ -224,4 +247,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default MainApp;

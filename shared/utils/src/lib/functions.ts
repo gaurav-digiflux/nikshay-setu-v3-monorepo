@@ -14,9 +14,5 @@ export function isAuth(token: string) {
 }
 
 export const fetchDataw = async () => {
-  try {
-    const cookies = new Cookies()
-  } catch (e) {
-    console.log('token error:', e)
-  }
+  console.log('fetchDataw')
 }

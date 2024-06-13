@@ -9,7 +9,7 @@
     "build:all": "nx run-many -t build",
     "e2e:all": "nx run-many -t e2e",
     "graph": "nx graph",
-    "lint": "nx lint",
+    "lint": "eslint --fix .",
     "lint:all": "nx run-many -t lint",
     "ng": "nx",
     "nx": "nx",

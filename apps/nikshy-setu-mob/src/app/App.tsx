@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import { counter, fetchDataw, isAuth } from '@nikshay-setu-v3-monorepo/utils';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, { useEffect, useRef, useState } from 'react';
+import { counter, fetchDataw, isAuth } from '@nikshay-setu-v3-monorepo/utils'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import React, { useEffect, useRef, useState } from 'react'
 import {
   SafeAreaView,
   StyleSheet,
@@ -11,42 +11,42 @@ import {
   StatusBar,
   TouchableOpacity,
   TextInput,
-} from 'react-native';
-import { fetchUserRequest } from '@nikshay-setu-v3-monorepo/store';
-import { Provider, useDispatch } from 'react-redux';
-import { constants } from '@nikshay-setu-v3-monorepo/constants';
+} from 'react-native'
+import { fetchUserRequest } from '@nikshay-setu-v3-monorepo/store'
+import { Provider, useDispatch } from 'react-redux'
+import { constants } from '@nikshay-setu-v3-monorepo/constants'
 
 export const MainApp = () => {
-  const [storedValue, setLoaclStorage] = useState<string>('');
-  const [asyncStorageVal, setAsyncStorageVal] = useState<string>('');
-  const dispatch = useDispatch();
+  const [storedValue, setLoaclStorage] = useState<string>('')
+  const [asyncStorageVal, setAsyncStorageVal] = useState<string>('')
+  const dispatch = useDispatch()
 
-  const scrollViewRef = useRef<null | ScrollView>(null);
+  const scrollViewRef = useRef<null | ScrollView>(null)
   const storeData = async (value) => {
     try {
-      const jsonValue = JSON.stringify(value);
-      await AsyncStorage.setItem('token', jsonValue);
+      const jsonValue = JSON.stringify(value)
+      await AsyncStorage.setItem('token', jsonValue)
     } catch (e) {
       // saving error
     }
-  };
+  }
   const fetchData = async () => {
     try {
-      const value = await AsyncStorage.getItem('token');
-      setAsyncStorageVal(value);
+      const value = await AsyncStorage.getItem('token')
+      setAsyncStorageVal(value)
     } catch (e) {
-      setAsyncStorageVal('erorr');
+      setAsyncStorageVal('erorr')
     }
-  };
+  }
 
   useEffect(() => {
-    fetchDataw();
+    fetchDataw()
     // dispatch(fetchUserRequest())
-    isAuth(asyncStorageVal);
-  }, []);
+    isAuth(asyncStorageVal)
+  }, [])
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle='dark-content' />
       <SafeAreaView
         style={{
           flex: 1,
@@ -54,16 +54,16 @@ export const MainApp = () => {
       >
         <ScrollView
           ref={(ref) => {
-            scrollViewRef.current = ref;
+            scrollViewRef.current = ref
           }}
-          contentInsetAdjustmentBehavior="automatic"
+          contentInsetAdjustmentBehavior='automatic'
           style={styles.scrollView}
         >
           <View style={styles.section}>
             <Text
               style={[styles.textXL, styles.appTitleText]}
-              testID="heading"
-              role="heading"
+              testID='heading'
+              role='heading'
             >
               Welcome {process.env.NODE_ENV} 👋
             </Text>
@@ -88,9 +88,9 @@ export const MainApp = () => {
           <TouchableOpacity
             style={styles.listItemTextContainer}
             onPress={() => {
-              storeData(storedValue);
-              fetchData();
-              counter(1, 3);
+              storeData(storedValue)
+              fetchData()
+              counter(1, 3)
             }}
           >
             <Text style={[styles.textMd, styles.textCenter]}>
@@ -100,7 +100,7 @@ export const MainApp = () => {
           <TouchableOpacity
             style={styles.listItemTextContainer}
             onPress={() => {
-              dispatch(fetchUserRequest());
+              dispatch(fetchUserRequest())
             }}
           >
             <Text style={[styles.textMd, styles.textCenter]}>CALL ACTION</Text>
@@ -116,8 +116,8 @@ export const MainApp = () => {
         </ScrollView>
       </SafeAreaView>
     </>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: '#000000',
@@ -243,6 +243,6 @@ const styles = StyleSheet.create({
     marginTop: 12,
     justifyContent: 'center',
   },
-});
+})
 
-export default MainApp;
+export default MainApp

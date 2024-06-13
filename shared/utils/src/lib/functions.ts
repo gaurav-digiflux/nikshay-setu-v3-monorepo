@@ -14,5 +14,5 @@ export function isAuth(token: string) {
 }
 
 export const fetchDataw = async () => {
-  console.log('fetchDataw')
+  console.log('fetchDaSSStaw')
 }

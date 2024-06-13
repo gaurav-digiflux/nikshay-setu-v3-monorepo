@@ -1,10 +1,4 @@
-import axios, {
-  AxiosInstance,
-  AxiosRequestConfig,
-  AxiosResponse,
-  AxiosError,
-} from 'axios'
-import { Store } from 'redux'
+import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios'
 import { Cookies } from 'react-cookie'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 

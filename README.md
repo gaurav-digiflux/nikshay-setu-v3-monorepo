@@ -88,3 +88,9 @@ Enjoy this cheat sheet at its fullest within Dash, the macOS documentation brows
 ## Commit Message Structure
 
 ---
+
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer]

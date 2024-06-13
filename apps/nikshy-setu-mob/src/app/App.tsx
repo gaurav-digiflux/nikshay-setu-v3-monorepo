@@ -13,7 +13,6 @@ import {
   TextInput,
 } from 'react-native';
 import { fetchUserRequest } from '@nikshay-setu-v3-monorepo/store';
-import store from 'shared/store/src/store/store';
 import { Provider, useDispatch } from 'react-redux';
 import { constants } from '@nikshay-setu-v3-monorepo/constants';
 
@@ -21,6 +20,7 @@ export const MainApp = () => {
   const [storedValue, setLoaclStorage] = useState<string>('');
   const [asyncStorageVal, setAsyncStorageVal] = useState<string>('');
   const dispatch = useDispatch();
+
   const scrollViewRef = useRef<null | ScrollView>(null);
   const storeData = async (value) => {
     try {
@@ -38,7 +38,6 @@ export const MainApp = () => {
       setAsyncStorageVal('erorr');
     }
   };
-console.log('process.env',process.env);
 
   useEffect(() => {
     fetchDataw();
@@ -101,7 +100,6 @@ console.log('process.env',process.env);
           <TouchableOpacity
             style={styles.listItemTextContainer}
             onPress={() => {
-              console.log('LOGG', 'SS');
               dispatch(fetchUserRequest());
             }}
           >

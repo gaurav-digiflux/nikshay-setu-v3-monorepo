@@ -4,9 +4,10 @@ import { Provider } from 'react-redux';
 import { initStore } from '@nikshay-setu-v3-monorepo/store';
 
 export const App = () => {
-  return (
+
+return (
     <Provider store={initStore()}>
-      <MainApp   />
+      <MainApp/>
     </Provider>
   );
 };

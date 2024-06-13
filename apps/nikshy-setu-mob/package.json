@@ -11,6 +11,8 @@
     "react-native": "*",
     "react-native-svg": "*",
     "metro-config": "*",
-    "react-redux": "*"
+    "react-redux": "*",
+    "webpack-cli": "*",
+    "dotenv":"*"
   }
 }

@@ -21,18 +21,15 @@ export function NxWelcome({ title }: { title: string }) {
   const fetchData = async () => {
     try {
       const value = await cookies.token;
-      console.log('token value:', value);
+  
       setAsyncStorageVal((value && value) || '');
     } catch (e) {
       setAsyncStorageVal('erorr');
-      console.log('token error:', e);
     }
   };
 
   useEffect(() => {
     fetchData();
-    console.log('user',);
-
   }, [user]);
   
   return (
@@ -61,8 +58,8 @@ export function NxWelcome({ title }: { title: string }) {
       />
       <div className="wrapper">
         <div className="container">
-          <div>
-            <h1 style={{ color: '#ffffff' }}>
+          <div style={{ color: '#ffffff' }}>
+            <h1 style={{ color: '#ffffff' }} >
               <span> Hello there, </span>
               Welcome {title + asyncStorageVal} 👋
             </h1>
@@ -70,6 +67,8 @@ export function NxWelcome({ title }: { title: string }) {
           <span style={{ color: '#ffffff' }}>
             Storage val : {asyncStorageVal}
           </span>
+          <p style={{ color: '#ffffff' }}>API Key: {process.env.NX_PUBLIC_API_URL}</p>
+          <p style={{ color: '#ffffff' }}>Database Host: {process.env.NX_PUBLIC_URL}</p>
           <input
             value={storedValue}
             onChange={(v) => setLoaclStorage(v.target.value)}
@@ -93,9 +92,7 @@ export function NxWelcome({ title }: { title: string }) {
           </button>
           <button
             onClick={() => {
-              console.log('all');
               constants()
-
             }}
           >
            env

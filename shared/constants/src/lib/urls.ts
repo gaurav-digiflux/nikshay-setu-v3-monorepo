@@ -1,2 +1,3 @@
-export const urls= {
-    GET_USER: 'users'}
+export const urls = {
+  GET_USER: 'users',
+}

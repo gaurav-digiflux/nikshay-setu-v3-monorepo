@@ -13,6 +13,6 @@
     "metro-config": "*",
     "react-redux": "*",
     "webpack-cli": "*",
-    "dotenv":"*"
+    "dotenv": "*"
   }
 }

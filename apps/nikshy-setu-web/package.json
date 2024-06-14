@@ -2,7 +2,5 @@
   "name": "nikshy-setu-web",
   "version": "0.0.1",
   "private": true,
-  "dependencies": {
-    
-  }
+  "dependencies": {}
 }

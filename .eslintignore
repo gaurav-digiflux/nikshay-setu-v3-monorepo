@@ -1,1 +1,9 @@
 node_modules
+.husky
+.nx
+.vscode
+.babelrc
+.gitignore
+.eslintignore
+.env
+.editorconfig

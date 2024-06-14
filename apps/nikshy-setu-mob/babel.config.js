@@ -1,5 +1,5 @@
 module.exports = function (api) {
-  api.cache(false)
+  api.cache(false);
   return {
     plugins: [
       [
@@ -10,5 +10,5 @@ module.exports = function (api) {
         },
       ],
     ],
-  }
-}
+  };
+};

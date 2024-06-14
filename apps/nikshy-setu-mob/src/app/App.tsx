@@ -1,123 +1,19 @@
-/* eslint-disable jsx-a11y/accessible-emoji */
-import { counter, fetchDataw, isAuth } from '@nikshay-setu-v3-monorepo/utils'
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import React, { useEffect, useRef, useState } from 'react'
+import { constants } from '@nikshay-setu-v3-monorepo/constants';
+import { fetchUserRequest } from '@nikshay-setu-v3-monorepo/store';
+import { counter, fetchDataw, isAuth } from '@nikshay-setu-v3-monorepo/utils';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   SafeAreaView,
-  StyleSheet,
   ScrollView,
-  View,
-  Text,
   StatusBar,
-  TouchableOpacity,
+  StyleSheet,
+  Text,
   TextInput,
-} from 'react-native'
-import { fetchUserRequest } from '@nikshay-setu-v3-monorepo/store'
-import { Provider, useDispatch } from 'react-redux'
-import { constants } from '@nikshay-setu-v3-monorepo/constants'
-
-export const MainApp = () => {
-  const [storedValue, setLoaclStorage] = useState<string>('')
-  const [asyncStorageVal, setAsyncStorageVal] = useState<string>('')
-  const dispatch = useDispatch()
-
-  const scrollViewRef = useRef<null | ScrollView>(null)
-  const storeData = async (value) => {
-    try {
-      const jsonValue = JSON.stringify(value)
-      await AsyncStorage.setItem('token', jsonValue)
-    } catch (e) {
-      // saving error
-    }
-  }
-  const fetchData = async () => {
-    try {
-      const value = await AsyncStorage.getItem('token')
-      setAsyncStorageVal(value)
-    } catch (e) {
-      setAsyncStorageVal('erorr')
-    }
-  }
-
-  useEffect(() => {
-    fetchDataw()
-    // dispatch(fetchUserRequest())
-    isAuth(asyncStorageVal)
-  }, [])
-  return (
-    <>
-      <StatusBar barStyle='dark-content' />
-      <SafeAreaView
-        style={{
-          flex: 1,
-        }}
-      >
-        <ScrollView
-          ref={(ref) => {
-            scrollViewRef.current = ref
-          }}
-          contentInsetAdjustmentBehavior='automatic'
-          style={styles.scrollView}
-        >
-          <View style={styles.section}>
-            <Text
-              style={[styles.textXL, styles.appTitleText]}
-              testID='heading'
-              role='heading'
-            >
-              Welcome {process.env.NODE_ENV} 👋
-            </Text>
-          </View>
-          <Text style={{ color: 'white' }}>
-            Storage val : {asyncStorageVal}
-          </Text>
-          <TextInput
-            editable
-            multiline
-            numberOfLines={2}
-            maxLength={40}
-            onChangeText={(text) => setLoaclStorage(text)}
-            value={storedValue}
-            style={{
-              padding: 5,
-              margin: 5,
-              borderColor: 'white',
-              borderWidth: 1,
-            }}
-          />
-          <TouchableOpacity
-            style={styles.listItemTextContainer}
-            onPress={() => {
-              storeData(storedValue)
-              fetchData()
-              counter(1, 3)
-            }}
-          >
-            <Text style={[styles.textMd, styles.textCenter]}>
-              save to local Storage
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.listItemTextContainer}
-            onPress={() => {
-              dispatch(fetchUserRequest())
-            }}
-          >
-            <Text style={[styles.textMd, styles.textCenter]}>CALL ACTION</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.listItemTextContainer}
-            onPress={() => {
-              constants()
-            }}
-          >
-            <Text style={[styles.textMd, styles.textCenter]}>CALL ENV</Text>
-          </TouchableOpacity>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  )
-}
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import { useDispatch } from 'react-redux';
 const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: '#000000',
@@ -243,6 +139,109 @@ const styles = StyleSheet.create({
     marginTop: 12,
     justifyContent: 'center',
   },
-})
+});
 
-export default MainApp
+export const MainApp = () => {
+  const [storedValue, setLoaclStorage] = useState<string>('');
+  const [asyncStorageVal, setAsyncStorageVal] = useState<string>('');
+  const dispatch = useDispatch();
+
+  const scrollViewRef = useRef<null | ScrollView>(null);
+  const storeData = async (value) => {
+    try {
+      const jsonValue = JSON.stringify(value);
+      await AsyncStorage.setItem('token', jsonValue);
+    } catch (e) {
+      // saving error
+    }
+  };
+  const fetchData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('token');
+      setAsyncStorageVal(value);
+    } catch (e) {
+      setAsyncStorageVal('erorr');
+    }
+  };
+
+  useEffect(() => {
+    fetchDataw();
+    // dispatch(fetchUserRequest())
+    isAuth(asyncStorageVal);
+  }, []);
+  return (
+    <>
+      <StatusBar barStyle='dark-content' />
+      <SafeAreaView
+        style={{
+          flex: 1,
+        }}
+      >
+        <ScrollView
+          ref={(ref) => {
+            scrollViewRef.current = ref;
+          }}
+          contentInsetAdjustmentBehavior='automatic'
+          style={styles.scrollView}
+        >
+          <View style={styles.section}>
+            <Text
+              style={[styles.textXL, styles.appTitleText]}
+              testID='heading'
+              role='heading'
+            >
+              Welcome {process.env.NODE_ENV} 👋
+            </Text>
+          </View>
+          <Text style={{ color: 'white' }}>
+            Storage val : {asyncStorageVal}
+          </Text>
+          <TextInput
+            editable
+            multiline
+            numberOfLines={2}
+            maxLength={40}
+            onChangeText={(text) => setLoaclStorage(text)}
+            value={storedValue}
+            style={{
+              padding: 5,
+              margin: 5,
+              borderColor: 'white',
+              borderWidth: 1,
+            }}
+          />
+          <TouchableOpacity
+            style={styles.listItemTextContainer}
+            onPress={() => {
+              storeData(storedValue);
+              fetchData();
+              counter(1, 3);
+            }}
+          >
+            <Text style={[styles.textMd, styles.textCenter]}>
+              save to local Storage
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.listItemTextContainer}
+            onPress={() => {
+              dispatch(fetchUserRequest());
+            }}
+          >
+            <Text style={[styles.textMd, styles.textCenter]}>CALL ACTION</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.listItemTextContainer}
+            onPress={() => {
+              constants();
+            }}
+          >
+            <Text style={[styles.textMd, styles.textCenter]}>CALL ENV</Text>
+          </TouchableOpacity>
+        </ScrollView>
+      </SafeAreaView>
+    </>
+  );
+};
+
+export default MainApp;

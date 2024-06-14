@@ -1,15 +1,21 @@
-export const FETCH_USER_REQUEST = 'FETCH_USER_REQUEST'
-export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS'
-export const FETCH_USER_FAILURE = 'FETCH_USER_FAILURE'
+import {
+  CallBack,
+  UserRequestPayload,
+  UserResponsePayload,
+} from '@nikshay-setu-v3-monorepo/types';
+import { ActionTypes } from '../actionTypes';
 
-export function fetchUserRequest(): any {
-  return { type: FETCH_USER_REQUEST }
+export function fetchUserRequest(
+  requestPayload: UserRequestPayload,
+  callBack?: CallBack
+) {
+  return { type: ActionTypes.FETCH_USER_REQUEST, requestPayload, callBack };
 }
 
-export function fetchUserSuccess(payload: any): any {
-  return { type: FETCH_USER_SUCCESS, payload }
+export function fetchUserSuccess(responsePayload: UserResponsePayload) {
+  return { type: ActionTypes.FETCH_USER_SUCCESS, responsePayload };
 }
 
-export function fetchUserFailure(error: Error): any {
-  return { type: FETCH_USER_FAILURE, error }
+export function fetchUserFailure(error: Error) {
+  return { type: ActionTypes.FETCH_USER_FAILURE, error };
 }

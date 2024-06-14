@@ -3,4 +3,4 @@ export const colorCode = {
     black: '#000000',
     red: '#3f3f',
   },
-}
+};

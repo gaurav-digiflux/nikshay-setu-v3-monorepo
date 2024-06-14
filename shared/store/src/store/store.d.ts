@@ -1,3 +1,3 @@
-import { Store } from 'redux'
+import { Store } from 'redux';
 
-export declare function initStore(): Store<S, A>
+export declare function initStore(): Store<S, A>;

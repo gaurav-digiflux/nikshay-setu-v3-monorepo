@@ -1,2 +1,3 @@
-export { initStore } from './store/store'
-export * from './action/user.actions'
+export * from './action/user.actions';
+export * from './actionTypes';
+export { initStore } from './store/store';

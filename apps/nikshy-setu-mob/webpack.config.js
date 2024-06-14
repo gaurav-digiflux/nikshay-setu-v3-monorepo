@@ -1,5 +1,5 @@
-const { NxAppWebpackPlugin } = require('@nx/webpack/app-plugin')
-const { NxReactWebpackPlugin } = require('@nx/react/webpack-plugin')
+const { NxAppWebpackPlugin } = require('@nx/webpack/app-plugin');
+const { NxReactWebpackPlugin } = require('@nx/react/webpack-plugin');
 
 module.exports = {
   resolve: {
@@ -30,4 +30,4 @@ module.exports = {
       // svgr: false
     }),
   ],
-}
+};

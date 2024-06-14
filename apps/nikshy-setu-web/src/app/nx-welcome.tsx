@@ -1,16 +1,6 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { constants } from '@nikshay-setu-v3-monorepo/constants';
 import { fetchUserRequest } from '@nikshay-setu-v3-monorepo/store';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import {
-  JSXElementConstructor,
-  ReactElement,
-  ReactNode,
-  ReactPortal,
-  useEffect,
-  useState,
-} from 'react';
+import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -100,7 +90,7 @@ export function NxWelcome({ title }: { title: string }) {
           </button>
           <button
             onClick={() => {
-              dispatch(fetchUserRequest());
+              dispatch(fetchUserRequest({ body: {}, query: '' }));
             }}
           >
             Call api
@@ -110,64 +100,20 @@ export function NxWelcome({ title }: { title: string }) {
               constants();
             }}
           >
-            env
+            env e
           </button>
         </div>
         <div>
-          {user?.users?.map(
-            (
-              v: {
-                firstName:
-                  | string
-                  | number
-                  | boolean
-                  | ReactElement<any, string | JSXElementConstructor<any>>
-                  | Iterable<ReactNode>
-                  | ReactPortal
-                  | null
-                  | undefined;
-                company: {
-                  name:
-                    | string
-                    | number
-                    | boolean
-                    | ReactElement<any, string | JSXElementConstructor<any>>
-                    | Iterable<ReactNode>
-                    | ReactPortal
-                    | null
-                    | undefined;
-                };
-                gender:
-                  | string
-                  | number
-                  | boolean
-                  | ReactElement<any, string | JSXElementConstructor<any>>
-                  | Iterable<ReactNode>
-                  | ReactPortal
-                  | null
-                  | undefined;
-                phone:
-                  | string
-                  | number
-                  | boolean
-                  | ReactElement<any, string | JSXElementConstructor<any>>
-                  | Iterable<ReactNode>
-                  | ReactPortal
-                  | null
-                  | undefined;
-              },
-              i: any
-            ) => {
-              return (
-                <div style={{ color: 'wheat', border: '1px solid white' }}>
-                  <h5>First Name :- {v?.firstName}</h5>
-                  <h4>Company :- {v?.company?.name}</h4>
-                  <h5>Gender :- {v?.gender}</h5>
-                  <h6>Phone :- {v?.phone}</h6>
-                </div>
-              );
-            }
-          )}
+          {user?.users?.map((v: any) => {
+            return (
+              <div style={{ color: 'wheat', border: '1px solid white' }}>
+                <h5>First Name :- {v?.firstName}</h5>
+                <h4>Company :- {v?.company?.name}</h4>
+                <h5>Gender :- {v?.gender}</h5>
+                <h6>Phone :- {v?.phone}</h6>
+              </div>
+            );
+          })}
         </div>
       </div>
     </>

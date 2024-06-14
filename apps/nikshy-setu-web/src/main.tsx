@@ -1,9 +1,6 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { StrictMode } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import * as ReactDOM from 'react-dom/client';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { CookiesProvider } from 'react-cookie';
+import * as ReactDOM from 'react-dom/client';
 
 import App from './app/app';
 

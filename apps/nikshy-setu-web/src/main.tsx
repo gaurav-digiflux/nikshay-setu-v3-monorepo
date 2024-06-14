@@ -1,8 +1,11 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { StrictMode } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import * as ReactDOM from 'react-dom/client';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { CookiesProvider } from 'react-cookie';
 
 import App from './app/app';
-import { CookiesProvider } from 'react-cookie';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

@@ -2,5 +2,20 @@
   "name": "nikshy-setu-web",
   "version": "0.0.1",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "react": "*",
+    "react-cookie": "*",
+    "react-dom": "*",
+    "tslib": "*"
+  },
+  "devDependencies": {
+    "@babel/core": "*",
+    "@babel/preset-react": "*",
+    "@nx/detox": "*",
+    "@nx/react": "*",
+    "@nx/web": "*",
+    "babel-jest": "*",
+    "detox": "*",
+    "react-refresh": "*"
+  }
 }

@@ -18,8 +18,7 @@
     "prettier": "prettier --config .prettierrc --write \"**/*.{css,html,js,jsx,json,md,scss,ts,tsx}\"",
     "prettier:test": "prettier --config .prettierrc --list-different \"**/*.{css,html,js,jsx,json,md,scss,ts,tsx}\"",
     "repair": "nx repair",
-    "reset": "nx reset",
-    "prepare": "husky install"
+    "reset": "nx reset"
   },
   "private": true,
   "dependencies": {

@@ -95,6 +95,6 @@
     "webpack-cli": "^5.1.4"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,md,html,css}": "prettier --write"
+    "*.{js,jsx,ts,tsx,md,html,css}": "prettier --write --ignore-unknown"
   }
 }

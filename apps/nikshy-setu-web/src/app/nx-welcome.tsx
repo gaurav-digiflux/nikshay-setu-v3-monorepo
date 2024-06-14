@@ -1,6 +1,6 @@
-import { constants } from '@nikshay-setu-v3-monorepo/constants'
-import { fetchUserRequest } from '@nikshay-setu-v3-monorepo/store'
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import { constants } from '@nikshay-setu-v3-monorepo/constants';
+import { fetchUserRequest } from '@nikshay-setu-v3-monorepo/store';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   JSXElementConstructor,
   ReactElement,
@@ -8,38 +8,38 @@ import {
   ReactPortal,
   useEffect,
   useState,
-} from 'react'
-import { useCookies } from 'react-cookie'
-import { useDispatch, useSelector } from 'react-redux'
+} from 'react';
+import { useCookies } from 'react-cookie';
+import { useDispatch, useSelector } from 'react-redux';
 
 export function NxWelcome({ title }: { title: string }) {
-  const [storedValue, setLoaclStorage] = useState<string>('')
-  const [asyncStorageVal, setAsyncStorageVal] = useState<string>('')
-  const [cookies, setCookie] = useCookies(['token'])
-  const dispatch = useDispatch()
+  const [storedValue, setLoaclStorage] = useState<string>('');
+  const [asyncStorageVal, setAsyncStorageVal] = useState<string>('');
+  const [cookies, setCookie] = useCookies(['token']);
+  const dispatch = useDispatch();
   const { user, error } = useSelector(
     (state: { user: { user: any; error: any } }) => state?.user
-  )
+  );
   const storeData = async (value: any) => {
     try {
-      setCookie('token', value)
+      setCookie('token', value);
     } catch (e) {
       // saving error
     }
-  }
+  };
   const fetchData = async () => {
     try {
-      const value = await cookies.token
+      const value = await cookies.token;
 
-      setAsyncStorageVal((value && value) || '')
+      setAsyncStorageVal((value && value) || '');
     } catch (e) {
-      setAsyncStorageVal('erorr')
+      setAsyncStorageVal('erorr');
     }
-  }
+  };
 
   useEffect(() => {
-    fetchData()
-  }, [user])
+    fetchData();
+  }, [user]);
 
   return (
     <>
@@ -90,22 +90,22 @@ export function NxWelcome({ title }: { title: string }) {
 
           <button
             onClick={() => {
-              storeData(storedValue)
-              fetchData()
+              storeData(storedValue);
+              fetchData();
             }}
           >
             Save to cookies
           </button>
           <button
             onClick={() => {
-              dispatch(fetchUserRequest())
+              dispatch(fetchUserRequest());
             }}
           >
             Call api
           </button>
           <button
             onClick={() => {
-              constants()
+              constants();
             }}
           >
             env
@@ -123,7 +123,7 @@ export function NxWelcome({ title }: { title: string }) {
                   | Iterable<ReactNode>
                   | ReactPortal
                   | null
-                  | undefined
+                  | undefined;
                 company: {
                   name:
                     | string
@@ -133,8 +133,8 @@ export function NxWelcome({ title }: { title: string }) {
                     | Iterable<ReactNode>
                     | ReactPortal
                     | null
-                    | undefined
-                }
+                    | undefined;
+                };
                 gender:
                   | string
                   | number
@@ -143,7 +143,7 @@ export function NxWelcome({ title }: { title: string }) {
                   | Iterable<ReactNode>
                   | ReactPortal
                   | null
-                  | undefined
+                  | undefined;
                 phone:
                   | string
                   | number
@@ -152,7 +152,7 @@ export function NxWelcome({ title }: { title: string }) {
                   | Iterable<ReactNode>
                   | ReactPortal
                   | null
-                  | undefined
+                  | undefined;
               },
               i: any
             ) => {
@@ -163,13 +163,13 @@ export function NxWelcome({ title }: { title: string }) {
                   <h5>Gender :- {v?.gender}</h5>
                   <h6>Phone :- {v?.phone}</h6>
                 </div>
-              )
+              );
             }
           )}
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default NxWelcome
+export default NxWelcome;

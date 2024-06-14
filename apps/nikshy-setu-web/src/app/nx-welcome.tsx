@@ -1,6 +1,8 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { constants } from '@nikshay-setu-v3-monorepo/constants';
 import { fetchUserRequest } from '@nikshay-setu-v3-monorepo/store';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import {
   JSXElementConstructor,
   ReactElement,

@@ -12,7 +12,7 @@
     "lint": "nx run-many -t lint",
     "lint:all": "nx run-many -t lint",
     "lintn": "eslint",
-    "lintn:fix": "eslint --fix ",
+    "lint:fix": "eslint --fix",
     "ng": "nx",
     "nx": "nx",
     "prettier": "prettier --config .prettierrc --write \"**/*.{css,html,js,jsx,json,md,scss,ts,tsx}\"",

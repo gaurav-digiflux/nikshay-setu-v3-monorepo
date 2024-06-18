@@ -20,7 +20,10 @@ const ScreenContainer: React.FC<ScreenContainerProps> = ({
 
   return (
     <React.Fragment>
-      <StatusBar barStyle={statusBarStyle} backgroundColor={backgroundColor || colors.white} />
+      <StatusBar
+        barStyle={statusBarStyle}
+        backgroundColor={backgroundColor || colors.white}
+      />
       <SafeAreaView
         style={[
           style,

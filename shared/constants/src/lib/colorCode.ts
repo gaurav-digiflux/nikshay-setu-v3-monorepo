@@ -1,10 +1,7 @@
 import { DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { Appearance } from 'react-native';
 
-
-enum colors {
-
-}
+enum colors {}
 
 export const appTheme = {
   colors: {
@@ -52,13 +49,10 @@ export const appTheme = {
       darkBackground: '#121212',
       darkGrayline: '#444444',
       darkMaisonGray: '#B0BEC5',
-
     },
     dark: true,
-  }
-}
-
-
+  },
+};
 
 const lightColorScheme = {
   primaryColor: {
@@ -94,4 +88,5 @@ const darkColorScheme = {
 
 const colorScheme = Appearance.getColorScheme();
 
-export const colorCode = colorScheme === 'dark' ? darkColorScheme : lightColorScheme;
+export const colorCode =
+  colorScheme === 'dark' ? darkColorScheme : lightColorScheme;

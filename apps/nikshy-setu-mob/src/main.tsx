@@ -8,7 +8,6 @@ import SplashScreen from 'react-native-splash-screen';
 import { Provider } from 'react-redux';
 import { AppNavigation } from './Stacks/AppNavigation';
 
-
 export const App = () => {
   const [loader, setLoader] = useState(false);
   const [themeState, setThemeState] = useState('defaultMode');
@@ -28,20 +27,29 @@ export const App = () => {
     return () => subscription.remove();
   }, []);
 
-
-
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <Provider store={initStore()}>{loader &&
-        <NavigationContainer theme={(themeState === 'dark' ? appTheme.darkcolors : appTheme.lightcolors)} >
-          <AppNavigation />
-          <StatusBar
-            backgroundColor={colorScheme === 'dark' ?
-              appTheme.darkcolors?.colors.white : appTheme.lightcolors.colors.white}
-            barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'}
-          />
-        </NavigationContainer>
-      }</Provider>
+      <Provider store={initStore()}>
+        {loader && (
+          <NavigationContainer
+            theme={
+              themeState === 'dark' ? appTheme.darkcolors : appTheme.lightcolors
+            }
+          >
+            <AppNavigation />
+            <StatusBar
+              backgroundColor={
+                colorScheme === 'dark'
+                  ? appTheme.darkcolors?.colors.white
+                  : appTheme.lightcolors.colors.white
+              }
+              barStyle={
+                colorScheme === 'dark' ? 'light-content' : 'dark-content'
+              }
+            />
+          </NavigationContainer>
+        )}
+      </Provider>
     </GestureHandlerRootView>
   );
 };

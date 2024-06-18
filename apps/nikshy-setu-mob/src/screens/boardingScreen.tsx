@@ -183,8 +183,8 @@ export const BoardingScreen = () => {
                 values.progress === 0.1
                   ? 0.2
                   : values.progress === 0.2
-                    ? 0.4
-                    : 0.5,
+                  ? 0.4
+                  : 0.5,
             });
           }}
         />

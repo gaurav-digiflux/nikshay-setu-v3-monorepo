@@ -1,13 +1,26 @@
-import { AppRegistry } from 'react-native';
-import MainApp from './app/App';
-import { Provider } from 'react-redux';
 import { initStore } from '@nikshay-setu-v3-monorepo/store';
+import { useEffect, useState } from 'react';
+import { AppRegistry } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import SplashScreen from 'react-native-splash-screen';
+import { Provider } from 'react-redux';
+import { BoardingScreen } from './screens/boardingScreen';
 
 export const App = () => {
+  const [loader, setLoader] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      SplashScreen.hide();
+      setLoader(true)
+    }, 4000);
+  }, []);
   return (
-    <Provider store={initStore()}>
-      <MainApp />
-    </Provider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Provider store={initStore()}>
+        {loader && <BoardingScreen />}
+      </Provider>
+    </GestureHandlerRootView>
+
   );
 };
 

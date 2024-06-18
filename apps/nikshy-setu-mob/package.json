@@ -13,6 +13,10 @@
     "metro-config": "*",
     "react-redux": "*",
     "webpack-cli": "*",
-    "dotenv": "*"
+    "dotenv": "*",
+    "react-native-splash-screen": "*",
+    "lottie-react-native": "*",
+    "react-native-gesture-handler": "*",
+    "react-native-reanimated": "*"
   }
 }

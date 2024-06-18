@@ -17,7 +17,6 @@ import { useDispatch } from 'react-redux';
 const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: '#000000',
-
   },
   codeBlock: {
     backgroundColor: '#000000',
@@ -164,7 +163,6 @@ export const MainApp = () => {
       setAsyncStorageVal('erorr');
     }
   };
-
 
   useEffect(() => {
     fetchDataw();

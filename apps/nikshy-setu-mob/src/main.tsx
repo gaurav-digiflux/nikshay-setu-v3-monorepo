@@ -11,16 +11,13 @@ export const App = () => {
   useEffect(() => {
     setTimeout(() => {
       SplashScreen.hide();
-      setLoader(true)
+      setLoader(true);
     }, 4000);
   }, []);
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <Provider store={initStore()}>
-        {loader && <BoardingScreen />}
-      </Provider>
+      <Provider store={initStore()}>{loader && <BoardingScreen />}</Provider>
     </GestureHandlerRootView>
-
   );
 };
 

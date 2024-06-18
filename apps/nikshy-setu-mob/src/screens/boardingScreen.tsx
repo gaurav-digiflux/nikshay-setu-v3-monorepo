@@ -1,5 +1,4 @@
 import { colorCode } from '@nikshay-setu-v3-monorepo/constants';
-import { useTheme } from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
@@ -43,7 +42,6 @@ export const BoardingScreen = () => {
   });
 
   const handleToggleChange = (value: string) => {
-    console.log('Active toggle:', value);
     setValues({ ...values, isNumOrEmail: value });
   };
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -51,9 +49,6 @@ export const BoardingScreen = () => {
   const handlePhoneNumberChange = (text: string) => {
     setPhoneNumber(text);
   };
-  const { colors } = useTheme();
-  console.log('colors', colors);
-
   return (
     <ScreenContainer style={{ paddingHorizontal: 20, backgroundColor: 'red' }}>
       <View style={{ flex: 0.2 }}>

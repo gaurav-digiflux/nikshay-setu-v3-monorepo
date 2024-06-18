@@ -16,8 +16,6 @@ const ScreenContainer: React.FC<ScreenContainerProps> = ({
   style,
 }) => {
   const { colors } = useTheme() as unknown as themeProps;
-  console.log('scheme', colors);
-
   return (
     <React.Fragment>
       <StatusBar

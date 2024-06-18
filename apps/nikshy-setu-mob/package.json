@@ -17,6 +17,10 @@
     "react-native-splash-screen": "*",
     "lottie-react-native": "*",
     "react-native-gesture-handler": "*",
-    "react-native-reanimated": "*"
+    "react-native-reanimated": "*",
+    "@react-navigation/native": "*",
+    "@react-navigation/native-stack": "*",
+    "react-native-safe-area-context": "*",
+    "react-native-screens": "*"
   }
 }

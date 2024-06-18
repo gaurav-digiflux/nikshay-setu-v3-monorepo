@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/dot-notation */
 import { NX_PUBLIC_API_TIMEOUT, NX_PUBLIC_API_URL } from '@env';
 
 export const BASE_URL = process?.env?.NX_PUBLIC_API_URL || NX_PUBLIC_API_URL;

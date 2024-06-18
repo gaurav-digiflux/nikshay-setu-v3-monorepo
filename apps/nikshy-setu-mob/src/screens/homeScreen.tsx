@@ -1,5 +1,5 @@
 import { Text } from 'react-native';
 
-export const App = () => {
+export const HomeScreen = () => {
   return <Text>hi</Text>;
 };

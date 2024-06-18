@@ -48,7 +48,7 @@ const TypingText: React.FC<TypingTextProps> = ({
         style={{
           fontSize: 15,
           fontWeight: '500',
-          color: colorCode.textCode.maisonGray,
+          color: colorCode.textColor.maisonGray,
           textAlign: 'justify',
         }}
       >

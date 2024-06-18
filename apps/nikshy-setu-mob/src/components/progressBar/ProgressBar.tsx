@@ -15,8 +15,8 @@ interface ProgressBarProps {
 const ProgressBar: React.FC<ProgressBarProps> = ({
   progress,
   height = 10,
-  backgroundColor = colorCode.commonCode.grayline,
-  progressColor = colorCode.primaryCode.primary,
+  backgroundColor = colorCode.commonColor.grayline,
+  progressColor = colorCode.primaryColor.primary,
   containerStyle,
 }) => {
   const animatedValue = useRef(new Animated.Value(0)).current;

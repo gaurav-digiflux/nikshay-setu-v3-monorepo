@@ -1,4 +1,5 @@
 import { colorCode } from '@nikshay-setu-v3-monorepo/constants';
+import { useTheme } from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
@@ -50,9 +51,11 @@ export const BoardingScreen = () => {
   const handlePhoneNumberChange = (text: string) => {
     setPhoneNumber(text);
   };
+  const { colors } = useTheme();
+  console.log('colors', colors);
 
   return (
-    <ScreenContainer style={{ paddingHorizontal: 20 }}>
+    <ScreenContainer style={{ paddingHorizontal: 20, backgroundColor: 'red' }}>
       <View style={{ flex: 0.2 }}>
         <Row style={{ backgroundColor: '#F4FFFF' }}>
           <LottieView
@@ -180,8 +183,8 @@ export const BoardingScreen = () => {
                 values.progress === 0.1
                   ? 0.2
                   : values.progress === 0.2
-                  ? 0.4
-                  : 0.5,
+                    ? 0.4
+                    : 0.5,
             });
           }}
         />
@@ -202,6 +205,6 @@ const styles1 = StyleSheet.create({
     fontSize: 15,
     fontWeight: '500',
     marginEnd: 10,
-    color: colorCode.textCode.maisonGray, // Use your colorCode.textCode.maisonGray value here
+    color: colorCode.textColor.maisonGray, // Use your colorCode.textColor.maisonGray value here
   },
 });

@@ -1,25 +1,23 @@
 // ProgressBar.tsx
 
-import { colorCode } from '@nikshay-setu-v3-monorepo/constants';
+import { themeProps } from '@nikshay-setu-v3-monorepo/types';
+import { useTheme } from '@react-navigation/native';
 import React, { useEffect, useRef } from 'react';
 import { Animated, StyleSheet, View, ViewStyle } from 'react-native';
 
 interface ProgressBarProps {
-  progress: number; // value between 0 and 1
+  progress: number;
   height?: number;
-  backgroundColor?: string;
-  progressColor?: string;
   containerStyle?: ViewStyle;
 }
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
   progress,
   height = 10,
-  backgroundColor = colorCode.commonColor.grayline,
-  progressColor = colorCode.primaryColor.primary,
   containerStyle,
 }) => {
   const animatedValue = useRef(new Animated.Value(0)).current;
+  const { colors } = useTheme() as unknown as themeProps;
 
   useEffect(() => {
     Animated.timing(animatedValue, {
@@ -36,13 +34,13 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
   return (
     <View
-      style={[styles.container, { height, backgroundColor }, containerStyle]}
+      style={[styles.container, { height, backgroundColor: colors.grayline }, containerStyle]}
     >
       <Animated.View
         style={[
           styles.progressBar,
           {
-            backgroundColor: progressColor,
+            backgroundColor: colors.primary,
             width: widthInterpolated,
           },
         ]}

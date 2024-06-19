@@ -2,7 +2,7 @@ import { appTheme } from '@nikshay-setu-v3-monorepo/constants';
 import { initStore } from '@nikshay-setu-v3-monorepo/store';
 import { NavigationContainer } from '@react-navigation/native';
 import { useEffect, useState } from 'react';
-import { AppRegistry, Appearance, StatusBar } from 'react-native';
+import { AppRegistry, Appearance } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import SplashScreen from 'react-native-splash-screen';
 import { Provider } from 'react-redux';
@@ -37,16 +37,6 @@ export const App = () => {
             }
           >
             <AppNavigation />
-            <StatusBar
-              backgroundColor={
-                colorScheme === 'dark'
-                  ? appTheme.darkcolors?.colors.white
-                  : appTheme.lightcolors.colors.white
-              }
-              barStyle={
-                colorScheme === 'dark' ? 'light-content' : 'dark-content'
-              }
-            />
           </NavigationContainer>
         )}
       </Provider>

@@ -5,13 +5,13 @@ import { SafeAreaView, StatusBar, ViewStyle } from 'react-native';
 
 interface ScreenContainerProps {
   children: React.ReactNode;
-  backgroundColor?: string;
+  statusBarColor?: string;
   statusBarStyle?: 'default' | 'light-content' | 'dark-content';
   style?: ViewStyle;
 }
 const ScreenContainer: React.FC<ScreenContainerProps> = ({
   children,
-  backgroundColor,
+  statusBarColor,
   statusBarStyle = 'light-content',
   style,
 }) => {
@@ -20,7 +20,7 @@ const ScreenContainer: React.FC<ScreenContainerProps> = ({
     <React.Fragment>
       <StatusBar
         barStyle={statusBarStyle}
-        backgroundColor={backgroundColor || colors.white}
+        backgroundColor={statusBarColor || colors.white}
       />
       <SafeAreaView
         style={[

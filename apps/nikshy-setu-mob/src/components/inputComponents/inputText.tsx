@@ -1,46 +1,52 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import React from 'react';
+import { KeyboardTypeOptions, StyleSheet, Text, TextInput, View } from 'react-native';
 
 interface Props {
   placeholder?: string;
   value?: string;
   label: string;
+  error?: string;
+  touched?: boolean;
+  keyboardType?: KeyboardTypeOptions;
   onChange?: (text: string) => void;
+  onBlur?: () => void;
 }
 
 const InputText: React.FC<Props> = ({
   placeholder = 'Mobile Number',
   value = '',
   label = 'label',
+  error,
+  touched = false,
+  keyboardType = 'default',
   onChange,
+  onBlur,
 }) => {
-  const [number, setNumber] = useState(value);
-
-  const handleChange = (text: string) => {
-    setNumber(text);
-    if (onChange) {
-      onChange(text);
-    }
-  };
-
   return (
-    <View style={styles.container}>
-      <Text style={styles.label}>{label}</Text>
-      <TextInput
-        style={styles.input}
-        placeholder={placeholder}
-        value={number}
-        onChangeText={handleChange}
-        keyboardType='phone-pad'
-      />
-    </View>
+    <React.Fragment>
+      <View style={[styles.container, {
+        borderColor: error && touched ? 'red' : '#D9DBDB',
+      }]}>
+        <Text style={styles.label}>{label} {touched && <Text style={{ color: "red" }}>*</Text>}</Text>
+        <TextInput
+          style={styles.input}
+          placeholder={placeholder}
+          value={value}
+          onChangeText={onChange}
+          keyboardType={keyboardType}
+          onBlur={onBlur}
+        />
+      </View>
+      {error && touched &&
+        <Text style={styles.errorTxt}>{error}</Text>
+      }
+    </React.Fragment>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     borderWidth: 0.5,
-    borderColor: '#D9DBDB',
     borderRadius: 10,
     paddingHorizontal: 10,
     paddingVertical: 5,
@@ -53,6 +59,9 @@ const styles = StyleSheet.create({
   input: {
     fontSize: 16,
   },
+  errorTxt: {
+    color: "red", paddingHorizontal: 5,
+  }
 });
 
 export default InputText;

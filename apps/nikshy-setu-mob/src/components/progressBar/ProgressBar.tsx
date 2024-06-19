@@ -34,7 +34,11 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
   return (
     <View
-      style={[styles.container, { height, backgroundColor: colors.grayline }, containerStyle]}
+      style={[
+        styles.container,
+        { height, backgroundColor: colors.grayline },
+        containerStyle,
+      ]}
     >
       <Animated.View
         style={[

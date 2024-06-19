@@ -50,10 +50,10 @@ export const BoardingScreen = () => {
     setPhoneNumber(text);
   };
   return (
-    <ScreenContainer >
+    <ScreenContainer>
       <View style={{ flex: 0.3, justifyContent: 'center' }}>
-        <View style={{ backgroundColor: '#F4FFFF', paddingHorizontal: 20, }}>
-          <Row >
+        <View style={{ backgroundColor: '#F4FFFF', paddingHorizontal: 20 }}>
+          <Row>
             <LottieView
               autoPlay
               source={require('../assets/animations/botHey.json')}
@@ -76,7 +76,9 @@ export const BoardingScreen = () => {
       </View>
 
       {values.progress === 0.1 && (
-        <View style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 20, }}>
+        <View
+          style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 20 }}
+        >
           <ToggleSwitch
             options={['Mobile', 'Email']}
             onChange={handleToggleChange}
@@ -102,13 +104,14 @@ export const BoardingScreen = () => {
       )}
 
       {values.progress === 0.2 && (
-        <View style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 20 }}>
+        <View
+          style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 20 }}
+        >
           <InputText
             label='Mobile Number'
             value={values.phoneNumber}
             onChange={handlePhoneNumberChange}
             placeholder='Enter your mobile number'
-
           />
           <InputText
             label='Enter OTP'
@@ -120,19 +123,26 @@ export const BoardingScreen = () => {
       )}
 
       {values.progress === 0.3 && (
-        <View style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 20 }}>
+        <View
+          style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 20 }}
+        >
           <InputText
             label='Full Name*'
             value={values.phoneNumber}
             onChange={handlePhoneNumberChange}
             placeholder='Enter your Full Name'
-
           />
         </View>
       )}
 
       {values.progress === 0.4 && (
-        <View style={{ flex: 1, justifyContent: 'space-evenly', paddingHorizontal: 20 }}>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'space-evenly',
+            paddingHorizontal: 20,
+          }}
+        >
           <InputText
             label='Full Name*'
             value={values.phoneNumber}
@@ -161,7 +171,9 @@ export const BoardingScreen = () => {
       )}
 
       {values.progress === 0.5 && (
-        <View style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 20 }}>
+        <View
+          style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 20 }}
+        >
           <InputText
             label='Mobile Number 0.5'
             value={values.phoneNumber}
@@ -171,7 +183,9 @@ export const BoardingScreen = () => {
         </View>
       )}
 
-      <View style={{ flex: 0.2, justifyContent: 'center', paddingHorizontal: 20 }}>
+      <View
+        style={{ flex: 0.2, justifyContent: 'center', paddingHorizontal: 20 }}
+      >
         <Button
           bgColor='#394F89'
           title={onProgressSteps[values.progress].buttonTxt}
@@ -182,8 +196,8 @@ export const BoardingScreen = () => {
                 values.progress === 0.1
                   ? 0.2
                   : values.progress === 0.2
-                    ? 0.4
-                    : 0.5,
+                  ? 0.4
+                  : 0.5,
             });
           }}
         />

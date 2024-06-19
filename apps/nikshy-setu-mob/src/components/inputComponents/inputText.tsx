@@ -1,5 +1,11 @@
 import React from 'react';
-import { KeyboardTypeOptions, StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+  KeyboardTypeOptions,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 
 interface Props {
   placeholder?: string;
@@ -24,10 +30,17 @@ const InputText: React.FC<Props> = ({
 }) => {
   return (
     <React.Fragment>
-      <View style={[styles.container, {
-        borderColor: error && touched ? 'red' : '#D9DBDB',
-      }]}>
-        <Text style={styles.label}>{label} {touched && <Text style={{ color: "red" }}>*</Text>}</Text>
+      <View
+        style={[
+          styles.container,
+          {
+            borderColor: error && touched ? 'red' : '#D9DBDB',
+          },
+        ]}
+      >
+        <Text style={styles.label}>
+          {label} {touched && <Text style={{ color: 'red' }}>*</Text>}
+        </Text>
         <TextInput
           style={styles.input}
           placeholder={placeholder}
@@ -37,9 +50,7 @@ const InputText: React.FC<Props> = ({
           onBlur={onBlur}
         />
       </View>
-      {error && touched &&
-        <Text style={styles.errorTxt}>{error}</Text>
-      }
+      {error && touched && <Text style={styles.errorTxt}>{error}</Text>}
     </React.Fragment>
   );
 };
@@ -60,8 +71,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   errorTxt: {
-    color: "red", paddingHorizontal: 5,
-  }
+    color: 'red',
+    paddingHorizontal: 5,
+  },
 });
 
 export default InputText;

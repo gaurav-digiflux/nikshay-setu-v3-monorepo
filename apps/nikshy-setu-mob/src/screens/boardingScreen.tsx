@@ -51,7 +51,6 @@ export const BoardingScreen = () => {
     setPhoneNumber(text);
   };
 
-
   const opacity = useRef(new Animated.Value(0)).current;
   const translateY = useRef(new Animated.Value(50)).current;
 
@@ -106,7 +105,10 @@ export const BoardingScreen = () => {
       {values.progress === 0.1 && (
         <Animated.View
           style={{
-            flex: 1, justifyContent: 'center', paddingHorizontal: 20, opacity: opacity,
+            flex: 1,
+            justifyContent: 'center',
+            paddingHorizontal: 20,
+            opacity: opacity,
             transform: [{ translateY: translateY }],
           }}
         >
@@ -137,7 +139,10 @@ export const BoardingScreen = () => {
       {values.progress === 0.2 && (
         <Animated.View
           style={{
-            flex: 1, justifyContent: 'center', paddingHorizontal: 20, opacity: opacity,
+            flex: 1,
+            justifyContent: 'center',
+            paddingHorizontal: 20,
+            opacity: opacity,
             transform: [{ translateY: translateY }],
           }}
         >
@@ -153,8 +158,10 @@ export const BoardingScreen = () => {
             onChange={handlePhoneNumberChange}
             placeholder='Enter your mobile number'
           />
-          <Row style={{ justifyContent: "space-between", margin: 4 }}>
-            <Text style={fontStyles.resendOTPText}>Didn’t receive yet? Resend now</Text>
+          <Row style={{ justifyContent: 'space-between', margin: 4 }}>
+            <Text style={fontStyles.resendOTPText}>
+              Didn’t receive yet? Resend now
+            </Text>
             <Text style={fontStyles.resendOTPText}>00:00</Text>
           </Row>
         </Animated.View>
@@ -163,7 +170,10 @@ export const BoardingScreen = () => {
       {values.progress === 0.3 && (
         <Animated.View
           style={{
-            flex: 1, justifyContent: 'space-evenly', paddingHorizontal: 20, opacity: opacity,
+            flex: 1,
+            justifyContent: 'space-evenly',
+            paddingHorizontal: 20,
+            opacity: opacity,
             transform: [{ translateY: translateY }],
           }}
         >
@@ -184,8 +194,25 @@ export const BoardingScreen = () => {
             transform: [{ translateY: translateY }],
           }}
         >
-          <ScrollView contentContainerStyle={{ justifyContent: 'space-evenly', padding: 20, }}>
-            <Text style={{ backgroundColor: "#E8F1FF", alignSelf: "flex-start", padding: 10, paddingHorizontal: 20, fontSize: 20, fontWeight: '200', borderRadius: 5 }}>+</Text>
+          <ScrollView
+            contentContainerStyle={{
+              justifyContent: 'space-evenly',
+              padding: 20,
+            }}
+          >
+            <Text
+              style={{
+                backgroundColor: '#E8F1FF',
+                alignSelf: 'flex-start',
+                padding: 10,
+                paddingHorizontal: 20,
+                fontSize: 20,
+                fontWeight: '200',
+                borderRadius: 5,
+              }}
+            >
+              +
+            </Text>
             <Text style={fontStyles.resendOTPText}>Add Profile Picture</Text>
             <InputText
               label='Full Name*'
@@ -201,15 +228,27 @@ export const BoardingScreen = () => {
             />
             <DropDown
               label='Cadre Type*'
-              value={"national"}
-              options={["National", "State", "District", "Block", "Health-Facility"]}
+              value={'national'}
+              options={[
+                'National',
+                'State',
+                'District',
+                'Block',
+                'Health-Facility',
+              ]}
               onChange={handlePhoneNumberChange}
               placeholder='Select cadre level'
             />
             <DropDown
               label='Cadre*'
-              value={"national"}
-              options={["National", "State", "District", "Block", "Health-Facility"]}
+              value={'national'}
+              options={[
+                'National',
+                'State',
+                'District',
+                'Block',
+                'Health-Facility',
+              ]}
               onChange={handlePhoneNumberChange}
               placeholder='Select cadre'
             />
@@ -220,7 +259,10 @@ export const BoardingScreen = () => {
       {values.progress === 0.5 && (
         <Animated.View
           style={{
-            flex: 1, justifyContent: 'space-evenly', paddingHorizontal: 20, opacity: opacity,
+            flex: 1,
+            justifyContent: 'space-evenly',
+            paddingHorizontal: 20,
+            opacity: opacity,
             transform: [{ translateY: translateY }],
           }}
         >
@@ -246,8 +288,8 @@ export const BoardingScreen = () => {
                 values.progress === 0.1
                   ? 0.2
                   : values.progress === 0.2
-                    ? 0.4
-                    : 0.1,
+                  ? 0.4
+                  : 0.1,
             });
           }}
         />

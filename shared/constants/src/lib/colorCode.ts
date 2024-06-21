@@ -1,7 +1,7 @@
 import { DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { Appearance } from 'react-native';
 
-enum colors {}
+enum colors { }
 
 export const appTheme = {
   colors: {
@@ -54,39 +54,8 @@ export const appTheme = {
   },
 };
 
-const lightColorScheme = {
-  primaryColor: {
-    primary: colors.primary,
-  },
-  commonColor: {
-    black: colors.black,
-    white: colors.white,
-    background: colors.white,
-    grayline: colors.grayline,
-  },
-  textColor: {
-    gray: colors.gray1,
-    maisonGray: colors.maisonGray,
-  },
-};
 
-const darkColorScheme = {
-  primaryColor: {
-    primary: colors.darkPrimary,
-  },
-  commonColor: {
-    black: colors.white, // In dark mode, we often use white for text
-    white: colors.black, // and black for background
-    background: colors.darkBackground,
-    grayline: colors.darkGrayline,
-  },
-  textColor: {
-    gray: colors.darkGray1,
-    maisonGray: colors.darkMaisonGray,
-  },
-};
 
 const colorScheme = Appearance.getColorScheme();
 
-export const colorCode =
-  colorScheme === 'dark' ? darkColorScheme : lightColorScheme;
+export const colorCode = {};

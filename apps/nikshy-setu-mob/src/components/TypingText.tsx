@@ -1,4 +1,5 @@
-import { colorCode } from '@nikshay-setu-v3-monorepo/constants';
+import { themeProps } from '@nikshay-setu-v3-monorepo/types';
+import { useTheme } from '@react-navigation/native';
 import React, { useEffect, useRef, useState } from 'react';
 import { Text, View, ViewStyle } from 'react-native';
 
@@ -18,6 +19,7 @@ const TypingText: React.FC<TypingTextProps> = ({
 }) => {
   const [typedText, setTypedText] = useState('');
   const previousTextRef = useRef<string>(text);
+  const { colors } = useTheme() as unknown as themeProps;
 
   useEffect(() => {
     let typingInterval: NodeJS.Timeout;
@@ -48,7 +50,7 @@ const TypingText: React.FC<TypingTextProps> = ({
         style={{
           fontSize: 15,
           fontWeight: '500',
-          color: colorCode.textColor.maisonGray,
+          color: colors.maisonGray,
           textAlign: 'justify',
         }}
       >

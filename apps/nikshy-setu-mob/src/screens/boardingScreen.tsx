@@ -1,13 +1,14 @@
-import { colorCode } from '@nikshay-setu-v3-monorepo/constants';
+import { fontStyles } from '@nikshay-setu-v3-monorepo/constants';
+import { useFocusEffect } from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useCallback, useRef, useState } from 'react';
+import { Animated, ScrollView, StyleSheet, Text, View } from 'react-native';
 import ToggleSwitch from '../components/ToggleSwitch';
 import TypingText from '../components/TypingText';
 import Button from '../components/buttons/primaryButtons';
 import { Column, Row } from '../components/commonCompoents/row_column';
 import ScreenContainer from '../components/defaultPage';
-import InputText from '../components/inputComponents/inputText';
+import { DropDown, InputText } from '../components/inputComponents/inputText';
 import ProgressBar from '../components/progressBar/ProgressBar';
 
 const onProgressSteps = {
@@ -20,17 +21,17 @@ const onProgressSteps = {
     chatBotText:
       "Please enter your mobile number below. We'll send you an OTP to verify your number. 📲 ",
     buttonTxt: 'Verify     ❯',
-    animationSpeed: 40,
+    animationSpeed: 80,
   },
   '0.4': {
     chatBotText: `Great ! 🎉 Now, let's get to know you better. Please enter your full name, email ID and your designation.`,
     buttonTxt: 'Continue     ❯',
-    animationSpeed: 30,
+    animationSpeed: 80,
   },
   '0.5': {
     chatBotText: `default`,
     buttonTxt: 'default     ❯',
-    animationSpeed: 30,
+    animationSpeed: 80,
   },
 };
 
@@ -49,6 +50,33 @@ export const BoardingScreen = () => {
   const handlePhoneNumberChange = (text: string) => {
     setPhoneNumber(text);
   };
+
+
+  const opacity = useRef(new Animated.Value(0)).current;
+  const translateY = useRef(new Animated.Value(50)).current;
+
+  const animate = useCallback(() => {
+    opacity.setValue(0);
+    translateY.setValue(50);
+
+    Animated.timing(opacity, {
+      toValue: 1,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+
+    Animated.timing(translateY, {
+      toValue: 0,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+  }, [opacity, translateY]);
+
+  useFocusEffect(
+    useCallback(() => {
+      animate();
+    }, [animate, values.progress])
+  );
   return (
     <ScreenContainer>
       <View style={{ flex: 0.3, justifyContent: 'center' }}>
@@ -76,8 +104,11 @@ export const BoardingScreen = () => {
       </View>
 
       {values.progress === 0.1 && (
-        <View
-          style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 20 }}
+        <Animated.View
+          style={{
+            flex: 1, justifyContent: 'center', paddingHorizontal: 20, opacity: opacity,
+            transform: [{ translateY: translateY }],
+          }}
         >
           <ToggleSwitch
             options={['Mobile', 'Email']}
@@ -100,12 +131,15 @@ export const BoardingScreen = () => {
               placeholder='Enter your mobile number'
             />
           )}
-        </View>
+        </Animated.View>
       )}
 
       {values.progress === 0.2 && (
-        <View
-          style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 20 }}
+        <Animated.View
+          style={{
+            flex: 1, justifyContent: 'center', paddingHorizontal: 20, opacity: opacity,
+            transform: [{ translateY: translateY }],
+          }}
         >
           <InputText
             label='Mobile Number'
@@ -119,12 +153,19 @@ export const BoardingScreen = () => {
             onChange={handlePhoneNumberChange}
             placeholder='Enter your mobile number'
           />
-        </View>
+          <Row style={{ justifyContent: "space-between", margin: 4 }}>
+            <Text style={fontStyles.resendOTPText}>Didn’t receive yet? Resend now</Text>
+            <Text style={fontStyles.resendOTPText}>00:00</Text>
+          </Row>
+        </Animated.View>
       )}
 
       {values.progress === 0.3 && (
-        <View
-          style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 20 }}
+        <Animated.View
+          style={{
+            flex: 1, justifyContent: 'space-evenly', paddingHorizontal: 20, opacity: opacity,
+            transform: [{ translateY: translateY }],
+          }}
         >
           <InputText
             label='Full Name*'
@@ -132,47 +173,56 @@ export const BoardingScreen = () => {
             onChange={handlePhoneNumberChange}
             placeholder='Enter your Full Name'
           />
-        </View>
+        </Animated.View>
       )}
 
       {values.progress === 0.4 && (
-        <View
+        <Animated.View
           style={{
             flex: 1,
-            justifyContent: 'space-evenly',
-            paddingHorizontal: 20,
+            opacity: opacity,
+            transform: [{ translateY: translateY }],
           }}
         >
-          <InputText
-            label='Full Name*'
-            value={values.phoneNumber}
-            onChange={handlePhoneNumberChange}
-            placeholder='Enter your Full Name*'
-          />
-          <InputText
-            label='Email'
-            value={values.phoneNumber}
-            onChange={handlePhoneNumberChange}
-            placeholder='Enter your Full Name*'
-          />
-          <InputText
-            label='Cadre Type*'
-            value={values.phoneNumber}
-            onChange={handlePhoneNumberChange}
-            placeholder='Enter your Full Name*'
-          />
-          <InputText
-            label='Cadre*'
-            value={values.phoneNumber}
-            onChange={handlePhoneNumberChange}
-            placeholder='Enter your Full Name*'
-          />
-        </View>
+          <ScrollView contentContainerStyle={{ justifyContent: 'space-evenly', padding: 20, }}>
+            <Text style={{ backgroundColor: "#E8F1FF", alignSelf: "flex-start", padding: 10, paddingHorizontal: 20, fontSize: 20, fontWeight: '200', borderRadius: 5 }}>+</Text>
+            <Text style={fontStyles.resendOTPText}>Add Profile Picture</Text>
+            <InputText
+              label='Full Name*'
+              value={values.phoneNumber}
+              onChange={handlePhoneNumberChange}
+              placeholder='Enter your Full Name*'
+            />
+            <InputText
+              label='Email'
+              value={values.phoneNumber}
+              onChange={handlePhoneNumberChange}
+              placeholder='Enter your Full Name*'
+            />
+            <DropDown
+              label='Cadre Type*'
+              value={"national"}
+              options={["National", "State", "District", "Block", "Health-Facility"]}
+              onChange={handlePhoneNumberChange}
+              placeholder='Select cadre level'
+            />
+            <DropDown
+              label='Cadre*'
+              value={"national"}
+              options={["National", "State", "District", "Block", "Health-Facility"]}
+              onChange={handlePhoneNumberChange}
+              placeholder='Select cadre'
+            />
+          </ScrollView>
+        </Animated.View>
       )}
 
       {values.progress === 0.5 && (
-        <View
-          style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 20 }}
+        <Animated.View
+          style={{
+            flex: 1, justifyContent: 'space-evenly', paddingHorizontal: 20, opacity: opacity,
+            transform: [{ translateY: translateY }],
+          }}
         >
           <InputText
             label='Mobile Number 0.5'
@@ -180,7 +230,7 @@ export const BoardingScreen = () => {
             onChange={handlePhoneNumberChange}
             placeholder='Enter your mobile number'
           />
-        </View>
+        </Animated.View>
       )}
 
       <View
@@ -196,8 +246,8 @@ export const BoardingScreen = () => {
                 values.progress === 0.1
                   ? 0.2
                   : values.progress === 0.2
-                  ? 0.4
-                  : 0.5,
+                    ? 0.4
+                    : 0.1,
             });
           }}
         />
@@ -218,6 +268,6 @@ const styles1 = StyleSheet.create({
     fontSize: 15,
     fontWeight: '500',
     marginEnd: 10,
-    color: colorCode.textColor.maisonGray, // Use your colorCode.textColor.maisonGray value here
+    color: '#394F89', // Use your colorCode.textColor.maisonGray value here
   },
 });

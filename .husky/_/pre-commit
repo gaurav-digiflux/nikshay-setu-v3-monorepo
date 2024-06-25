@@ -1,5 +1,15 @@
 #!/usr/bin/env sh
+. "${0%/*}/h"
 
-npx lint-staged
-npm prettier:test
-npm run prettier
+npx lint-staged ||(
+  echo  'lint-staged Check Failed. Make the required changes listed above, add changes and try to commit again.'
+  false;
+)
+npm prettier:test||(
+  echo  'prettier:test Check Failed. Make the required changes listed above, add changes and try to commit again.'
+  false;
+)
+npm run prettier||(
+  echo  'prettier Check Failed. Make the required changes listed above, add changes and try to commit again.'
+  false;
+)

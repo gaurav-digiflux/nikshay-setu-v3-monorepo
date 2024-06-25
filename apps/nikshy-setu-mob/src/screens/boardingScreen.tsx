@@ -1,5 +1,5 @@
 import { botHeyAnimation } from '@nikshay-setu-v3-monorepo/assets';
-import { fontStyles } from '@nikshay-setu-v3-monorepo/constants';
+import { BASE_URL, fontStyles } from '@nikshay-setu-v3-monorepo/constants';
 import { useFocusEffect } from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
 import React, { useCallback, useRef, useState } from 'react';
@@ -48,6 +48,7 @@ export const BoardingScreen = () => {
     setValues({ ...values, isNumOrEmail: value });
   };
   const [phoneNumber, setPhoneNumber] = useState('');
+  console.log('BASE_URL mob', BASE_URL);
 
   const handlePhoneNumberChange = (text: string) => {
     setPhoneNumber(text);
@@ -284,8 +285,8 @@ export const BoardingScreen = () => {
                 values.progress === 0.1
                   ? 0.2
                   : values.progress === 0.2
-                  ? 0.4
-                  : 0.1,
+                    ? 0.4
+                    : 0.1,
             });
           }}
         />

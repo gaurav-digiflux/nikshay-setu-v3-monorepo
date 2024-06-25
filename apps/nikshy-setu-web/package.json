@@ -16,6 +16,7 @@
     "@nx/web": "*",
     "babel-jest": "*",
     "detox": "*",
-    "react-refresh": "*"
+    "react-refresh": "*",
+    "dotenv": "*"
   }
 }

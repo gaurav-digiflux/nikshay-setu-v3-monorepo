@@ -1,1 +1,1 @@
-export const botHeyAnimation = require('./botHey.json')
+export const botHeyAnimation = require('./botHey.json');

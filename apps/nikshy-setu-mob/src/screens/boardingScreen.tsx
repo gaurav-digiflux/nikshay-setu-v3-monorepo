@@ -148,13 +148,10 @@ export const BoardingScreen = () => {
             transform: [{ translateY: translateY }],
           }}
         >
-          <InputField
-            error={'fhi'}
-            label={'Enter OTP'}
-            touched={false}>
+          <InputField error={'fhi'} label={'Enter OTP'} touched={false}>
             <InputField.Input />
           </InputField>
-          <InputField error={'fhi'} label={'Enter OTP'} touched={false} >
+          <InputField error={'fhi'} label={'Enter OTP'} touched={false}>
             <InputField.Input />
           </InputField>
           <Row style={{ justifyContent: 'space-between', margin: 4 }}>
@@ -287,8 +284,8 @@ export const BoardingScreen = () => {
                 values.progress === 0.1
                   ? 0.2
                   : values.progress === 0.2
-                    ? 0.4
-                    : 0.1,
+                  ? 0.4
+                  : 0.1,
             });
           }}
         />

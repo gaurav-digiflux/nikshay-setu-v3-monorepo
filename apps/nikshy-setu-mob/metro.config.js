@@ -19,7 +19,7 @@ const customConfig = {
     assetExts: assetExts.filter((ext) => ext !== 'svg'),
     sourceExts: [...sourceExts, 'cjs', 'mjs', 'svg'],
   },
-  watchFolders: [path.resolve(__dirname, '../../'),]
+  watchFolders: [path.resolve(__dirname, '../../')],
 };
 
 module.exports = withNxMetro(mergeConfig(defaultConfig, customConfig), {

@@ -1,3 +1,4 @@
+import { drpdwnIC } from '@nikshay-setu-v3-monorepo/assets';
 import { fontStyles, uiStyles } from '@nikshay-setu-v3-monorepo/constants';
 import React, { useState } from 'react';
 import {
@@ -141,15 +142,6 @@ export const DropDown: React.FC<PropsDropDown> = ({
           </Text>
           {/* <Image source={{ uri: exampleImageUri }} style={{ height: 20, width: 60 }} /> */}
         </Row>
-        {/* <TextInput
-          placeholderTextColor={"#CCCCCC"}
-          style={uiStyles.TextInputInputComponent}
-          placeholder={placeholder}
-          value={value}
-          onChangeText={onChange}
-          keyboardType={keyboardType}
-          onBlur={onBlur}
-        /> */}
         <Row
           style={{
             justifyContent: 'space-between',
@@ -159,11 +151,10 @@ export const DropDown: React.FC<PropsDropDown> = ({
         >
           <Text style={uiStyles.TextInputInputComponent}>{placeholder}</Text>
           <Image
-            source={require('../../assets/images/drpdwnIC.png')}
+            source={drpdwnIC}
             style={{ height: 7, width: 13, marginHorizontal: 10 }}
           />
         </Row>
-
         {showOption && (
           <View style={styles.row}>
             {options.map((option, index) => (
@@ -197,3 +188,5 @@ const styles = StyleSheet.create({
     margin: 5,
   },
 });
+
+

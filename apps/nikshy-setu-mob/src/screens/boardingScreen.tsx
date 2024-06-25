@@ -1,3 +1,4 @@
+import { botHeyAnimation } from '@nikshay-setu-v3-monorepo/assets';
 import { fontStyles } from '@nikshay-setu-v3-monorepo/constants';
 import { useFocusEffect } from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
@@ -8,6 +9,7 @@ import TypingText from '../components/TypingText';
 import Button from '../components/buttons/primaryButtons';
 import { Column, Row } from '../components/commonCompoents/row_column';
 import ScreenContainer from '../components/defaultPage';
+import { InputField } from '../components/inputComponents/inputBox';
 import { DropDown, InputText } from '../components/inputComponents/inputText';
 import ProgressBar from '../components/progressBar/ProgressBar';
 
@@ -83,7 +85,7 @@ export const BoardingScreen = () => {
           <Row>
             <LottieView
               autoPlay
-              source={require('../assets/animations/botHey.json')}
+              source={botHeyAnimation}
               loop={true}
               style={{ height: 80, width: 80 }}
             />
@@ -146,18 +148,15 @@ export const BoardingScreen = () => {
             transform: [{ translateY: translateY }],
           }}
         >
-          <InputText
-            label='Mobile Number'
-            value={values.phoneNumber}
-            onChange={handlePhoneNumberChange}
-            placeholder='Enter your mobile number'
-          />
-          <InputText
-            label='Enter OTP'
-            value={'* * * *'}
-            onChange={handlePhoneNumberChange}
-            placeholder='Enter your mobile number'
-          />
+          <InputField
+            error={'fhi'}
+            label={'Enter OTP'}
+            touched={false}>
+            <InputField.Input />
+          </InputField>
+          <InputField error={'fhi'} label={'Enter OTP'} touched={false} >
+            <InputField.Input />
+          </InputField>
           <Row style={{ justifyContent: 'space-between', margin: 4 }}>
             <Text style={fontStyles.resendOTPText}>
               Didn’t receive yet? Resend now
@@ -288,8 +287,8 @@ export const BoardingScreen = () => {
                 values.progress === 0.1
                   ? 0.2
                   : values.progress === 0.2
-                  ? 0.4
-                  : 0.1,
+                    ? 0.4
+                    : 0.1,
             });
           }}
         />

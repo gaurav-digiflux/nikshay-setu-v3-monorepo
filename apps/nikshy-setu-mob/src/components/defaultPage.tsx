@@ -4,7 +4,7 @@ import React from 'react';
 import { SafeAreaView, StatusBar, ViewStyle } from 'react-native';
 
 interface ScreenContainerProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   statusBarColor?: string;
   statusBarStyle?: 'default' | 'light-content' | 'dark-content';
   style?: ViewStyle;

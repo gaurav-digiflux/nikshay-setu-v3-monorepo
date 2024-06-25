@@ -3,7 +3,7 @@ import { StyleProp, View, ViewProps, ViewStyle } from 'react-native';
 
 interface ColumnProps extends ViewProps {
   style?: StyleProp<ViewStyle>;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const Column: React.FC<ColumnProps> = ({ style, children, ...rest }) => {
@@ -16,7 +16,7 @@ export const Column: React.FC<ColumnProps> = ({ style, children, ...rest }) => {
 
 interface RowProps extends ViewProps {
   style?: StyleProp<ViewStyle>;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const Row: React.FC<RowProps> = ({ style, children, ...rest }) => {

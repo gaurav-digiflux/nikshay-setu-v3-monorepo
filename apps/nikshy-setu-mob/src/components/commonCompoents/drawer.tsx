@@ -75,7 +75,7 @@ export const Drawer = ({ isOpen, onClose }) => {
                         { icon: <Application_Interaction_IC />, name: "Application Interaction" },
                     ].map((item, index) => {
                         return (
-                            <Row style={{ alignItems: "center", justifyContent: "space-between", }}>
+                            <Row key={index + item.name} style={{ alignItems: "center", justifyContent: "space-between", }}>
                                 <Row style={{ alignItems: "center", }}>
                                     {item.icon}
                                     <Text style={styles.drawerItem}>{item.name}</Text>
@@ -90,7 +90,7 @@ export const Drawer = ({ isOpen, onClose }) => {
                         { icon: <Leaderboard_IC />, name: "Leaderboard" },
                     ].map((item, index) => {
                         return (
-                            <Row style={{ alignItems: "center", justifyContent: "space-between", }}>
+                            <Row key={item.name + index} style={{ alignItems: "center", justifyContent: "space-between", }}>
                                 <Row style={{ alignItems: "center", }}>
                                     {item.icon}
                                     <Text style={styles.drawerItem}>{item.name}</Text>
@@ -107,7 +107,7 @@ export const Drawer = ({ isOpen, onClose }) => {
                         { icon: <Logout_IC />, name: "Sign Out" },
                     ].map((item, index) => {
                         return (
-                            <Row style={{ alignItems: "center", justifyContent: "space-between", }}>
+                            <Row key={item.name + index} style={{ alignItems: "center", justifyContent: "space-between", }}>
                                 <Row style={{ alignItems: "center", }}>
                                     {item.icon}
                                     <Text style={styles.drawerItem}>{item.name}</Text>

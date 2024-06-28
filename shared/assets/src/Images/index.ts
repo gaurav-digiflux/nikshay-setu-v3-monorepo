@@ -40,6 +40,9 @@ import Ntep_info_IC from '../Images/svgs/ntep_info_IC.svg';
 import Patient_manage_tool from '../Images/svgs/patient_manage_tool.svg';
 import Query_res_IC from '../Images/svgs/query_res_IC.svg';
 import Referral_health_IC from '../Images/svgs/referral_health_IC.svg';
+import ReletedApp1 from '../Images/svgs/reletedApp1.svg';
+import ReletedApp2 from '../Images/svgs/reletedApp2.svg';
+import ReletedApp3 from '../Images/svgs/reletedApp3.svg';
 import Resource_materials_IC from '../Images/svgs/resource_materials_IC.svg';
 import SideBarBTN_IC from '../Images/svgs/sideBarBTN_IC.svg';
 import Treatment_care_cascade_IC from '../Images/svgs/treatment_care_cascade_IC.svg';
@@ -52,7 +55,9 @@ export {
      Languages_IC, Leaderboard_IC,
      Learn_case_findings_IC, Logout_IC, ManageTb_IC,
      ManuDiagnosticCascadeIC,
-     Mic_IC, More_IC, Ntep_info_IC, Patient_manage_tool, Query_res_IC, Referral_health_IC, Resource_materials_IC, SideBarBTN_IC,
+     Mic_IC, More_IC, Ntep_info_IC, Patient_manage_tool, Query_res_IC, Referral_health_IC, ReletedApp1,
+     ReletedApp2,
+     ReletedApp3, Resource_materials_IC, SideBarBTN_IC,
      Treatment_care_cascade_IC
 };
 

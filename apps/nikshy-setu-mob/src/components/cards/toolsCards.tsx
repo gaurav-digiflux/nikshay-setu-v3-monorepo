@@ -1,13 +1,44 @@
-import { moderateScale, verticalScale } from '@nikshay-setu-v3-monorepo/utils';
-import React from 'react';
+import { fontStyles } from '@nikshay-setu-v3-monorepo/constants';
+import { verticalScale } from '@nikshay-setu-v3-monorepo/utils';
+import React, { ReactNode } from 'react';
 import { Image, ImageSourcePropType, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import { SvgProps } from 'react-native-svg';
 
-interface ToolsCardProps {
-    ImageSrc: ImageSourcePropType;
-    Title: string
+
+
+interface ToolsCardContainerProps {
+    children: ReactNode;
 }
 
-const ToolsCard: React.FC<ToolsCardProps> = ({ ImageSrc, Title }) => {
+const ToolsCardContainer: React.FC<ToolsCardContainerProps> = ({ children }) => (
+    <View
+        style={[
+            styles.container,
+            styles.iosShadow,
+            { backgroundColor: '#ffffff' },
+        ]}
+    >
+        {children}
+    </View>
+);
+const ToolsCardImage: React.FC<{ ImageSrc?: ImageSourcePropType }> = ({ ImageSrc }) => (
+    ImageSrc ? <Image source={ImageSrc} style={styles.img} /> : null
+);
+
+const ToolsCardTitle: React.FC<{ Title: string }> = ({ Title }) => (
+    <Text style={{ textAlign: "center", marginTop: verticalScale(5), ...fontStyles.Maison_500_12PX_15LH }}>{Title}</Text>
+);
+
+const ToolsCardSvgImage: React.FC<{ SvgImg?: React.FC<SvgProps> }> = ({ SvgImg }) => (
+    SvgImg ? <SvgImg height={40} width={40} /> : null
+);
+interface ToolsCardProps {
+    ImageSrc?: ImageSourcePropType | null;
+    Title: string;
+    SvgImg?: React.FC<SvgProps>;
+}
+
+const ToolsCard: React.FC<ToolsCardProps> = ({ ImageSrc, Title, SvgImg }) => {
     return (
         <Pressable
             style={{
@@ -17,16 +48,10 @@ const ToolsCard: React.FC<ToolsCardProps> = ({ ImageSrc, Title }) => {
                 flex: 1,
             }}
         >
-            <View
-                style={[
-                    styles.container,
-                    styles.iosShadow,
-                    { backgroundColor: '#ffffff' },
-                ]}
-            >
-                <Image source={ImageSrc} style={styles.img} />
-            </View>
-            <Text style={{ textAlign: "center", fontWeight: "500", fontSize: moderateScale(12), marginTop: verticalScale(5) }}>{Title}</Text>
+            <ToolsCardContainer>
+                {ImageSrc ? <ToolsCardImage ImageSrc={ImageSrc} /> : <ToolsCardSvgImage SvgImg={SvgImg} />}
+            </ToolsCardContainer>
+            <ToolsCardTitle Title={Title} />
         </Pressable>
     );
 };

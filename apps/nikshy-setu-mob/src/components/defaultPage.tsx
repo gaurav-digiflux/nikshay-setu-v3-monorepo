@@ -1,8 +1,9 @@
-import { Bell_IC, Languages_IC, SideBarBTN_IC } from '@nikshay-setu-v3-monorepo/assets';
+import { Arrow_IC, Bell_IC, Languages_IC, SideBarBTN_IC } from '@nikshay-setu-v3-monorepo/assets';
+import { fontStyles } from '@nikshay-setu-v3-monorepo/constants';
 import { themeProps } from '@nikshay-setu-v3-monorepo/types';
-import { useTheme } from '@react-navigation/native';
+import { useNavigation, useTheme } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { SafeAreaView, StatusBar, Text, ViewStyle } from 'react-native';
+import { SafeAreaView, StatusBar, Text, TouchableOpacity, ViewStyle } from 'react-native';
 import { Drawer } from './commonCompoents/drawer';
 import { Row } from './commonCompoents/row_column';
 
@@ -12,6 +13,7 @@ interface ScreenContainerProps {
   statusBarStyle?: 'default' | 'light-content' | 'dark-content';
   style?: ViewStyle;
   appBar?: boolean
+  backBtn?: boolean
 }
 const ScreenContainer: React.FC<ScreenContainerProps> = ({
   children,
@@ -19,9 +21,12 @@ const ScreenContainer: React.FC<ScreenContainerProps> = ({
   statusBarStyle = 'light-content',
   style,
   appBar,
+  backBtn
 }) => {
   const { colors } = useTheme() as unknown as themeProps;
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const navigation = useNavigation();
+
   return (
     <React.Fragment>
       <StatusBar
@@ -33,13 +38,20 @@ const ScreenContainer: React.FC<ScreenContainerProps> = ({
           <SideBarBTN_IC width={40} height={40} onPress={() => {
             setDrawerOpen(!drawerOpen)
           }} />
-          <Text style={{ fontSize: 27, marginStart: 5, fontWeight: "700", color: "#394F89" }}>Ni-kshay SETU</Text>
+          <Text style={{ ...fontStyles.Maison_700_28PX_33LH, marginStart: 5, color: "#394F89" }}>Ni-kshay SETU</Text>
         </Row>
         <Row>
           <Languages_IC width={40} height={40} />
           <Bell_IC width={40} height={40} />
         </Row>
       </Row>}
+      {backBtn &&
+        <Row style={{ backgroundColor: "white", height: 50, justifyContent: "space-between", alignItems: "center", paddingHorizontal: 15 }}>
+          <TouchableOpacity style={{ alignItems: "center", flexDirection: "row" }} onPress={() => { navigation.goBack() }}>
+            <Arrow_IC width={25} height={25} rotation={180} />
+            <Text style={{ ...fontStyles.Maison_500_22PX_29LH, marginStart: 5, color: "#394F89" }}>Back</Text>
+          </TouchableOpacity>
+        </Row>}
       <SafeAreaView
         style={[
           style,

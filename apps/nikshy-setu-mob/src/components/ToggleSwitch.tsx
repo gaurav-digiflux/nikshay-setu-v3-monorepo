@@ -60,9 +60,9 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
             { width: TOGGLE_WIDTH, transform: [{ translateX }] },
           ]}
         />
-        {options.map((option) => (
+        {options.map((option, key) => (
           <TouchableOpacity
-            key={option}
+            key={option + key}
             style={styles.toggleButton}
             onPress={() => handleToggle(option)}
           >

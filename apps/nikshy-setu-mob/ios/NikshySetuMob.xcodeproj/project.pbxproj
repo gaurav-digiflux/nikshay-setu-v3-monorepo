@@ -14,6 +14,14 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-NikshySetuMob-NikshySetuMobTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-NikshySetuMob-NikshySetuMobTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		159936BBFA8D482E8C7D2738 /* Maison-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1304AEC7BBB341C4A0E1E17D /* Maison-Bold.otf */; };
+		2C93E4C2B46641F6A4404D0F /* Maison-Demi.otf in Resources */ = {isa = PBXBuildFile; fileRef = 016EB9486F1D433788A47F81 /* Maison-Demi.otf */; };
+		B401FEF021A247998676C2E6 /* Maison-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B7D305923AC4B48BE003C97 /* Maison-Light.otf */; };
+		C2BA3A2ED4C04B1C8E7ED504 /* Maison-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 35934DA4B3E542EBA12EE82B /* Maison-Medium.otf */; };
+		C54D45441D9B4402A0FD2D62 /* Maison-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F436DA00A00940CD902F4A25 /* Maison-Regular.otf */; };
+		F36D0D09E6E54FA1BEE65BA0 /* Maison-RegularOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37765472EF2E41EBB2CD0249 /* Maison-RegularOblique.otf */; };
+		A30A21F6489047288D5C1079 /* MaisonMono-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7695D4B6B8A049FE96F02694 /* MaisonMono-Bold.otf */; };
+		1F084BA26A1D4E68A204E386 /* MaisonMono-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EE600234A1634F61958137FC /* MaisonMono-Light.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +44,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = NikshySetuMob/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = NikshySetuMob/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = NikshySetuMob/main.m; sourceTree = "<group>"; };
-	    13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = NikshySetuMob/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = NikshySetuMob/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-NikshySetuMob-NikshySetuMobTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NikshySetuMob-NikshySetuMobTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-NikshySetuMob.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NikshySetuMob.debug.xcconfig"; path = "Target Support Files/Pods-NikshySetuMob/Pods-NikshySetuMob.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-NikshySetuMob.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NikshySetuMob.release.xcconfig"; path = "Target Support Files/Pods-NikshySetuMob/Pods-NikshySetuMob.release.xcconfig"; sourceTree = "<group>"; };
@@ -45,6 +53,14 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = NikshySetuMob/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-NikshySetuMob-NikshySetuMobTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NikshySetuMob-NikshySetuMobTests.release.xcconfig"; path = "Target Support Files/Pods-NikshySetuMob-NikshySetuMobTests/Pods-NikshySetuMob-NikshySetuMobTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		1304AEC7BBB341C4A0E1E17D /* Maison-Bold.otf */ = {isa = PBXFileReference; name = "Maison-Bold.otf"; path = "../src/assets/fonts/Maison-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		016EB9486F1D433788A47F81 /* Maison-Demi.otf */ = {isa = PBXFileReference; name = "Maison-Demi.otf"; path = "../src/assets/fonts/Maison-Demi.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5B7D305923AC4B48BE003C97 /* Maison-Light.otf */ = {isa = PBXFileReference; name = "Maison-Light.otf"; path = "../src/assets/fonts/Maison-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		35934DA4B3E542EBA12EE82B /* Maison-Medium.otf */ = {isa = PBXFileReference; name = "Maison-Medium.otf"; path = "../src/assets/fonts/Maison-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F436DA00A00940CD902F4A25 /* Maison-Regular.otf */ = {isa = PBXFileReference; name = "Maison-Regular.otf"; path = "../src/assets/fonts/Maison-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		37765472EF2E41EBB2CD0249 /* Maison-RegularOblique.otf */ = {isa = PBXFileReference; name = "Maison-RegularOblique.otf"; path = "../src/assets/fonts/Maison-RegularOblique.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7695D4B6B8A049FE96F02694 /* MaisonMono-Bold.otf */ = {isa = PBXFileReference; name = "MaisonMono-Bold.otf"; path = "../src/assets/fonts/MaisonMono-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EE600234A1634F61958137FC /* MaisonMono-Light.otf */ = {isa = PBXFileReference; name = "MaisonMono-Light.otf"; path = "../src/assets/fonts/MaisonMono-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +140,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				4A74626EE37649528E90CF8F /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -149,6 +166,22 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		4A74626EE37649528E90CF8F /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				1304AEC7BBB341C4A0E1E17D /* Maison-Bold.otf */,
+				016EB9486F1D433788A47F81 /* Maison-Demi.otf */,
+				5B7D305923AC4B48BE003C97 /* Maison-Light.otf */,
+				35934DA4B3E542EBA12EE82B /* Maison-Medium.otf */,
+				F436DA00A00940CD902F4A25 /* Maison-Regular.otf */,
+				37765472EF2E41EBB2CD0249 /* Maison-RegularOblique.otf */,
+				7695D4B6B8A049FE96F02694 /* MaisonMono-Bold.otf */,
+				EE600234A1634F61958137FC /* MaisonMono-Light.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -245,6 +278,14 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				159936BBFA8D482E8C7D2738 /* Maison-Bold.otf in Resources */,
+				2C93E4C2B46641F6A4404D0F /* Maison-Demi.otf in Resources */,
+				B401FEF021A247998676C2E6 /* Maison-Light.otf in Resources */,
+				C2BA3A2ED4C04B1C8E7ED504 /* Maison-Medium.otf in Resources */,
+				C54D45441D9B4402A0FD2D62 /* Maison-Regular.otf in Resources */,
+				F36D0D09E6E54FA1BEE65BA0 /* Maison-RegularOblique.otf in Resources */,
+				A30A21F6489047288D5C1079 /* MaisonMono-Bold.otf in Resources */,
+				1F084BA26A1D4E68A204E386 /* MaisonMono-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

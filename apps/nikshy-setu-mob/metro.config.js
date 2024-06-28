@@ -19,7 +19,6 @@ const customConfig = {
     assetExts: assetExts.filter((ext) => ext !== 'svg'),
     sourceExts: [...sourceExts, 'cjs', 'mjs', 'svg'],
   },
-  watchFolders: [path.resolve(__dirname, '../../')],
 };
 
 module.exports = withNxMetro(mergeConfig(defaultConfig, customConfig), {
@@ -29,5 +28,5 @@ module.exports = withNxMetro(mergeConfig(defaultConfig, customConfig), {
   // all the file extensions used for imports other than 'ts', 'tsx', 'js', 'jsx', 'json'
   extensions: [],
   // Specify folders to watch, in addition to Nx defaults (workspace libraries and node_modules)
-  watchFolders: [],
+  watchFolders: [path.resolve(__dirname, '../../')],
 });

@@ -1,4 +1,4 @@
-import { drpdwnIC } from '@nikshay-setu-v3-monorepo/assets';
+import { dropdown_IC } from '@nikshay-setu-v3-monorepo/assets';
 import { fontStyles, uiStyles } from '@nikshay-setu-v3-monorepo/constants';
 import React, { useState } from 'react';
 import {
@@ -151,7 +151,7 @@ export const DropDown: React.FC<PropsDropDown> = ({
         >
           <Text style={uiStyles.TextInputInputComponent}>{placeholder}</Text>
           <Image
-            source={drpdwnIC}
+            source={dropdown_IC}
             style={{ height: 7, width: 13, marginHorizontal: 10 }}
           />
         </Row>

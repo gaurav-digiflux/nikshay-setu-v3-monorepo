@@ -21,6 +21,8 @@
     "@react-navigation/native-stack": "*",
     "react-native-safe-area-context": "*",
     "react-native-screens": "*",
-    "@nikshay-setu-v3-monorepo/assets": "*"
+    "@nikshay-setu-v3-monorepo/assets": "*",
+    "react-native-linear-gradient": "*",
+    "@react-navigation/drawer": "*"
   }
 }

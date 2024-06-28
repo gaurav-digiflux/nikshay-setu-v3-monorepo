@@ -1,5 +1,4 @@
 import { constants } from '@nikshay-setu-v3-monorepo/constants';
-import { fetchUserRequest } from '@nikshay-setu-v3-monorepo/store';
 import { counter, fetchDataw, isAuth } from '@nikshay-setu-v3-monorepo/utils';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect, useRef, useState } from 'react';
@@ -225,7 +224,7 @@ export const MainApp = () => {
           <TouchableOpacity
             style={styles.listItemTextContainer}
             onPress={() => {
-              dispatch(fetchUserRequest());
+              // dispatch(fetchUserRequest());
             }}
           >
             <Text style={[styles.textMd, styles.textCenter]}>CALL ACTION</Text>

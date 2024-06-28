@@ -22,3 +22,9 @@ declare module '*.svg' {
   const value: string;
   export default value;
 }
+
+// src/custom.d.ts
+declare module '*.otf' {
+  const content: any;
+  export default content;
+}
